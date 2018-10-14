@@ -1,4 +1,4 @@
-# docker-lamp-laravel
+# docker_lamp_laravel
 Laravel 用の Docker Compose です。
 
 ## 前提
@@ -11,7 +11,7 @@ Laravel 用の Docker Compose です。
 ```
 .
 └── app
-    ├── docker-lamp-laravel
+    ├── docker_lamp_laravel
     └── sample
 ```
 
@@ -19,5 +19,5 @@ Laravel 用の Docker Compose です。
 
 ```bash
 cd app/
-git clone https://github.com/oki2a24/docker-lamp-laravel.git
+git clone https://github.com/oki2a24/docker_lamp_laravel.git
 ```

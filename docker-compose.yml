@@ -16,6 +16,8 @@ services:
   php_apache:
     build:
       context: ./php_apache
+    environment:
+      - TZ=${WORKSPACE_TIMEZONE}
     ports:
       - 80:80
       - 443:443
@@ -40,7 +42,7 @@ services:
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-        #- TZ=${WORKSPACE_TIMEZONE}
+      - TZ=${WORKSPACE_TIMEZONE}
     ports:
       - 3306:3306
     volumes:

@@ -13,6 +13,14 @@ APP_CODE_PATH_CONTAINER=/var/www:cached
 # Choose storage path on your machine. For all storage systems
 DATA_PATH_HOST=~/.docker_lamp_laravel/data
 
+###########################################################
+################ Containers Customization #################
+###########################################################
+
+### WORKSPACE #############################################
+
+WORKSPACE_TIMEZONE=Japan
+
 ### MYSQL #################################################
 
 #MYSQL_VERSION=latest

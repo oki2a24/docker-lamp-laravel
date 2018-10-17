@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     zlib1g-dev \
     && docker-php-ext-install \
+    pdo_mysql \
     zip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \

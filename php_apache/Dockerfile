@@ -15,10 +15,13 @@ RUN apt-get update && apt-get install -y \
     zip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
+    && a2enmod rewrite \
     && a2enmod ssl \
     && a2ensite default-ssl
 
 COPY ./php.ini /usr/local/etc/php/
+COPY ./sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY ./sites-available/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
 
 RUN curl -s http://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer

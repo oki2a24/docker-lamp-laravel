@@ -1,4 +1,5 @@
-From php:apache
+ARG PHP_VERSION
+FROM php:${PHP_VERSION}-apache
 
 ARG TZ=UTC
 ENV TZ ${TZ}

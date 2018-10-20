@@ -23,7 +23,7 @@ WORKSPACE_TIMEZONE=Japan
 
 ### MYSQL #################################################
 
-#MYSQL_VERSION=latest
+MYSQL_VERSION=latest
 MYSQL_DATABASE=default
 MYSQL_USER=default
 MYSQL_PASSWORD=secret

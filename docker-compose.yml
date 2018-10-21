@@ -15,6 +15,7 @@ services:
       context: ./php_apache
       args:
         PHP_VERSION: ${PHP_VERSION}
+        TZ: ${WORKSPACE_TIMEZONE}
     environment:
       - TZ=${WORKSPACE_TIMEZONE}
     ports:
@@ -30,6 +31,7 @@ services:
       context: ./mysql
       args:
         MYSQL_VERSION: ${MYSQL_VERSION}
+        TZ: ${WORKSPACE_TIMEZONE}
     environment:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_USER=${MYSQL_USER}

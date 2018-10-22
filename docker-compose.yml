@@ -17,12 +17,25 @@ services:
         PHP_VERSION: ${PHP_VERSION}
         TZ: ${WORKSPACE_TIMEZONE}
     environment:
+      - DOCUMENT_ROOT=${DOCUMENT_ROOT}
       - TZ=${WORKSPACE_TIMEZONE}
     ports:
       - 80:80
       - 443:443
     volumes:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
+      - ./env/php_apache/sites-available.template:/etc/apache2/sites-available.template
+    command: >
+      /bin/bash -c "
+      envsubst
+      '$$DOCUMENT_ROOT'
+      < /etc/apache2/sites-available.template/000-default.conf.template
+      > /etc/apache2/sites-available/000-default.conf
+      && envsubst
+      '$$DOCUMENT_ROOT'
+      < /etc/apache2/sites-available.template/default-ssl.conf.template
+      > /etc/apache2/sites-available/default-ssl.conf
+      && exec apache2-foreground"
     networks:
       - backend
 

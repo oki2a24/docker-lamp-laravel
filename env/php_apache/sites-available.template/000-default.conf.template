@@ -9,8 +9,8 @@
 	#ServerName www.example.com
 
 	ServerAdmin webmaster@localhost
-	DocumentRoot /var/www/html/public
-	<Directory /var/www/html/public>
+	DocumentRoot ${DOCUMENT_ROOT}
+	<Directory ${DOCUMENT_ROOT}>
 		Options Indexes FollowSymLinks MultiViews
 		AllowOverride All
 		Require all granted

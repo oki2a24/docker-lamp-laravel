@@ -6,7 +6,6 @@ ENV TZ ${TZ}
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update && apt-get install -y \
-    gettext-base \
     libssl-dev \
     openssl \
     ssl-cert \
@@ -22,8 +21,7 @@ RUN apt-get update && apt-get install -y \
     && a2ensite default-ssl
 
 COPY ./php.ini /usr/local/etc/php/
-COPY ./sites-available/000-default.conf /etc/apache2/sites-available/
-COPY ./sites-available/default-ssl.conf /etc/apache2/sites-available/
+COPY ./sites-available/ /etc/apache2/sites-available/
 
 RUN curl -s http://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer

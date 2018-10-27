@@ -46,6 +46,12 @@ services:
     networks:
       - backend
 
+  composer:
+    build:
+      context: ./composer
+    volumes:
+      - ${APP_CODE_PATH_HOST}:/app
+
   node:
     build:
       context: ./node

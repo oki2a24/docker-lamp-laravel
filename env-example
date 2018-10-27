@@ -24,7 +24,6 @@ PHP_VERSION=7.2
 
 ### WORKSPACE #############################################
 
-DOCUMENT_ROOT=/var/www/html/public
 WORKSPACE_TIMEZONE=Japan
 
 ### MYSQL #################################################

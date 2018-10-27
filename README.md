@@ -26,3 +26,9 @@ Laravel 用の Docker Compose です。
 cd app/
 git clone https://github.com/oki2a24/docker_lamp_laravel.git
 ```
+
+```bash
+docker-compose run --rm node npm install
+docker-compose run --rm node npm run dev
+docker-compose run --rm node npm run watch
+```

@@ -1,6 +1,11 @@
 # docker_lamp_laravel
 Laravel 用の Docker Compose です。
 
+## 構成
+- Apache
+- MySQL
+- PHP
+
 ## 前提
 - Laravel のプロジェクトは作成されているものとします。
   - 例えば、プロジェクトディレクトリ名を、`sample` として説明します。

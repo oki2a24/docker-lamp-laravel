@@ -45,3 +45,11 @@ services:
       - ${MYSQL_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
     networks:
       - backend
+
+  node:
+    build:
+      context: ./node
+      args:
+        NODE_VERSION: ${NODE_VERSION}
+    volumes:
+      - ${APP_CODE_PATH_HOST}:/root

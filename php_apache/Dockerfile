@@ -23,7 +23,4 @@ RUN apt-get update && apt-get install -y \
 COPY ./php.ini /usr/local/etc/php/
 COPY ./sites-available/ /etc/apache2/sites-available/
 
-RUN curl -s http://getcomposer.org/installer | php && \
-    mv composer.phar /usr/local/bin/composer
-
 WORKDIR /var/www

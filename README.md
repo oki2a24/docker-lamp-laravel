@@ -1,4 +1,4 @@
-# docker_lamp_laravel
+# docker_lamp_laravel_blog
 Laravel 用の Docker Compose です。
 
 ## Docker Compose の構成
@@ -20,15 +20,15 @@ Laravel 用の Docker Compose です。
 ```
 .
 └── app
-    ├── docker_lamp_laravel
+    ├── docker_lamp_laravel_blog
     └── blog
 ```
 
 ### 本リポジトリの導入方法と設定ファイルのコピー、設定
 ```bash
 cd app/
-git clone https://github.com/oki2a24/docker_lamp_laravel.git
-cd docker_lamp_laravel
+git clone https://github.com/oki2a24/docker_lamp_laravel_blog.git docker_lamp_laravel_blog
+cd docker_lamp_laravel_blog
 cp env-example .env
 ```
 
@@ -67,6 +67,7 @@ docker-compose run --rm composer composer create-project --prefer-dist laravel/l
 DB_HOST=mysql # docker-compose.yml の services を設定
 DB_DATABASE=default # docker_lanmp_laravel/.env の MYSQL_DATABASE 値を設定
 DB_USERNAME=default # docker_lanmp_laravel/.env の MYSQL_USER 値を設定
+DB_PASSWORD=secret # docker_lanmp_laravel/.env の MYSQL_PASSWORD 値を設定
 ```
 
 コンテナに入り、Laravel のマイグレーションを実行してください。
@@ -78,23 +79,31 @@ php artisan migrate
 
 ### 補足。MySQL 操作について
 コンテナに入り、操作するには次のコマンドを実行します。
+パスワードは、docker_lanmp_laravel/.env の MYSQL_ROOT_PASSWORD 値です。
 
 ```bash
 docker-compose exec mysql bash
 mysql -u root -proot
 ```
 
-補足。MySQL の root ユーザのパスワードを設定するには、`docker_lanmp_laravel/.env` の MYSQL_ROOT_PASSWORD を変更してください。
-
 ### 補足。アセットコンパイルに関する操作方法
 [アセットのコンパイル(Laravel Mix) 5.5 Laravel](https://readouble.com/laravel/5.5/ja/mix.html) を行う場合に実行するコマンドです。
 `npm` ではなく、 `yarn` を使用することも可能です。
-Windows の場合は、`npm install` は失敗すると思います。
+Windows の場合は、`npm install` は失敗する場合があると思います。
 その場合は、`npm install --no-bin-links` を試してみてください。
 これでも失敗する場合がありますが、 `yarn install` を試してみてください。
 なお、最初から `yarn install` を使用しても問題ありません。
 
-注意点として、`blog` ディレクトリではなく、`docker-compose.yml` のある、`docker_lanmp_laravel` ディレクトリで実行してください。
+また、Node.js のイメージによってエラーが発生する場合があります。
+次のエラーは node:10-alpine を使用した場合に発生しました。
+
+```
+gyp ERR! stack Error: Can't find Python executable "python", you can set the PYTHON env variable.
+```
+
+このような場合は、alpine ではないイメージを使用してみてください。
+
+実行する際の注意点として、`blog` ディレクトリではなく、`docker-compose.yml` のある、`docker_lanmp_laravel` ディレクトリで実行してください。
 インストール等は、`blog` ディレクトリへ反映されます。
 
 ```bash

@@ -38,4 +38,4 @@ MYSQL_ENTRYPOINT_INITDB=./mysql/docker-entrypoint-initdb.d
 
 ### Node.js  #################################################
 
-NODE_VERSION=10-alpine
+NODE_VERSION=10

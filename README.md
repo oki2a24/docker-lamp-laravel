@@ -25,9 +25,11 @@ Laravel 用の Docker Compose です。
 ```
 
 ### 本リポジトリの導入方法と設定ファイルのコピー、設定
+同一の PC に、複数の本リポジトリを導入する可能性を考慮して、 `git clone` 時は別名とするのがベターです。
+
 ```bash
 cd app/
-git clone https://github.com/oki2a24/docker_lamp_laravel_blog.git docker_lamp_laravel_blog
+git clone https://github.com/oki2a24/docker_lamp_laravel.git docker_lamp_laravel_blog
 cd docker_lamp_laravel_blog
 cp env-example .env
 ```
